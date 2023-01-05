@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+    .row {
+        margin-top: 10px;
+    }
+
+    .form-control {
+        width: 50%;
+    }
+
+    .box-content {
+        padding-left: 20px;
+        padding-top: 50px;
+        background-color: rgba(62, 69, 81, 0.2);
+        height: 100%;
+        width: 100%;
+    }
+
+    .form-items {
+        padding-bottom: 10px;
+    }
+
+    .form-items textarea {
+        width: 70%;
+        height: 120px;
+    }
+
+    .top-section {
+        background-color: #c4b3c2;
+    }
+
+    .top-name {
+        white-space: nowrap;
+    }
+
+    .top-name img {
+        width: 130px;
+        height: 130px;
+        display: inline-block;
+        margin: 10px;
+        margin-left: 30px;
+    }
+
+    .top-name p {
+        font-size: 32px;
+        display: inline-block;
+        margin-left: 80px;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+</style>
+
+<title>About Us</title>
+{% endblock %}
+
+{% block content %}
+<section class="top-section">
+    <span class="top-name">
+        <img src="/static/partners/{{ pic }}" alt="{{ pic }}">
+        <p>{{ name }}</p>
+    </span>
+</section>
+<section>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='background-images/travel_general_pic.jpg') }}" width="100%" height="100%">
+        </div>
+        <div class="col-md-6">
+            <div class="box-content">
+                <h2>Contact Us</h2>
+                <form action="/contact/{{ name }}" method="post">
+                    <div class="form-items">
+                        <span><b>Name</b></span>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    <div class="form-items">
+                        <span><b>Email</b></span>
+                        <input type="email" class="form-control" name="email">
+                    </div>
+                    <div class="form-items">
+                        <span><b>Content Subject</b></span>
+                        <input type="text" class="form-control" name="sub">
+                    </div>
+                    <div class="form-items">
+                        <span><b>What's on Your Mind</b></span>
+                        <textarea type="text" class="form-control" name="data"></textarea>
+                    </div>
+                    <div class="form-items">
+                        <a href="#"><button class="btn" type="submit">Send Me an Email</button></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
